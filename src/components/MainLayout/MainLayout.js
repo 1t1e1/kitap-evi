@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Container } from 'reactstrap';
 import './style.js';
 
 const MainLayout = (props) => {
@@ -6,7 +7,7 @@ const MainLayout = (props) => {
     document.title = props.title;
   }, []);
 
-  return props.children;
+  return <Container>{props.children}</Container>;
 };
 
 export default MainLayout;
