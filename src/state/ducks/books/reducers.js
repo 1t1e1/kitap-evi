@@ -15,7 +15,7 @@ function booksReducer(state = initialState, action) {
     case Actions.ADD_BOOK:
       return {
         ...state,
-        books: [...state.books, action.payload],
+        data: [...state.data, action.payload],
       };
     default:
       return state;

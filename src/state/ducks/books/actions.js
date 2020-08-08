@@ -1,9 +1,13 @@
 import * as Actions from './types';
 
-const addBook = (values) => ({
-  type: Actions.ADD_BOOK,
-  payload: values,
-});
+const addBook = (values) => {
+  return (dispatch) => {
+    dispatch({
+      type: Actions.ADD_BOOK,
+      payload: values,
+    });
+  };
+};
 
 const getBooks = (values) => ({
   type: Actions.GET_BOOKS,

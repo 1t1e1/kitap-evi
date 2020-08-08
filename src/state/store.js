@@ -1,9 +1,11 @@
 import * as reducers from './ducks';
-// import  reducers  from './ducks';
-import { combineReducers, createStore, compose } from 'redux';
-
-console.log('reducer', reducers);
-console.log('console', console);
+import {
+  combineReducers,
+  createStore,
+  compose,
+  applyMiddleware,
+} from 'redux';
+import ReduxThunk from 'redux-thunk';
 
 const rootReducer = combineReducers(reducers);
 
@@ -12,6 +14,9 @@ const composeEnhancers =
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
   compose;
 
-const store = createStore(rootReducer, composeEnhancers());
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(ReduxThunk)),
+);
 
 export default store;
