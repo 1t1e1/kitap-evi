@@ -1,7 +1,7 @@
 import * as Actions from './types';
 
 const initialState = {
-  data: [{ name: 'first book' }, { name: 'secondh book' }],
+  data: [{ title: 'first book' }, { title: 'second book' }],
 };
 
 function booksReducer(state = initialState, action) {
