@@ -1,11 +1,19 @@
 import * as Actions from './types';
+import Axios from 'axios';
+import { apiUrl } from '../../../constant';
 
 const addBook = (values) => {
   return (dispatch) => {
-    dispatch({
-      type: Actions.ADD_BOOK,
-      payload: values,
-    });
+    Axios.post(`${apiUrl}/booksDene`, values)
+      .then(function (result) {
+        dispatch({
+          type: Actions.ADD_BOOK,
+          payload: result.data,
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 };
 
