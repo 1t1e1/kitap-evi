@@ -5,11 +5,33 @@ import {
   FormGroup,
   Label,
   Input,
-  FormText,
+  // FormText,
+  FormFeedback,
 } from 'reactstrap';
 import { Formik } from 'formik';
 import { Categories, Rating } from '../../constant';
+import * as Yup from 'yup';
 import './style.js';
+
+const validationSchema = Yup.object().shape({
+  title: Yup.string()
+    .min(4, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Title is required field'),
+  author: Yup.string()
+    .min(4, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Required'),
+  publisher: Yup.string()
+    .min(4, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Required'),
+  imageUrl: Yup.string()
+    .min(4, 'Too Short!')
+    .max(50, 'Too Long!')
+    .url('Url is not valid'),
+  // description: Yup.string().email('Invalid email').required('Required'),
+});
 
 const AddBookForm = (props) => {
   return (
@@ -24,6 +46,7 @@ const AddBookForm = (props) => {
           description: '',
           imageUrl: '',
         }}
+        validationSchema={validationSchema}
         onSubmit={(values) => {
           console.log(JSON.stringify(values, null, 2));
         }}
@@ -48,7 +71,11 @@ const AddBookForm = (props) => {
                 value={values.title}
                 onChange={handleChange}
                 onBlur={handleBlur}
+                invalid={errors.title && touched.title}
               />
+              {errors.title && touched.title ? (
+                <FormFeedback>{errors.title}</FormFeedback>
+              ) : null}
             </FormGroup>
             <FormGroup>
               <Label for="author">Author</Label>
@@ -60,7 +87,11 @@ const AddBookForm = (props) => {
                 value={values.author}
                 onChange={handleChange}
                 onBlur={handleBlur}
+                invalid={errors.author && touched.author}
               />
+              {errors.author && touched.author ? (
+                <FormFeedback>{errors.author}</FormFeedback>
+              ) : null}
             </FormGroup>
             <FormGroup>
               <Label for="imageUrl">Image URL</Label>
@@ -72,7 +103,11 @@ const AddBookForm = (props) => {
                 value={values.imageUrl}
                 onChange={handleChange}
                 onBlur={handleBlur}
+                invalid={errors.imageUrl && touched.imageUrl}
               />
+              {errors.imageUrl && touched.imageUrl ? (
+                <FormFeedback>{errors.imageUrl}</FormFeedback>
+              ) : null}
             </FormGroup>
             <FormGroup>
               <Label for="publisher">Publisher</Label>
@@ -84,7 +119,11 @@ const AddBookForm = (props) => {
                 value={values.publisher}
                 onChange={handleChange}
                 onBlur={handleBlur}
+                invalid={errors.publisher && touched.publisher}
               />
+              {errors.publisher && touched.publisher ? (
+                <FormFeedback>{errors.publisher}</FormFeedback>
+              ) : null}
             </FormGroup>
             <FormGroup>
               <Label for="category">Category</Label>
