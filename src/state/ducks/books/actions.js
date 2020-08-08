@@ -17,14 +17,28 @@ const addBook = (values) => {
   };
 };
 
-const getBooks = (values) => ({
-  type: Actions.GET_BOOKS,
-  payload: values,
-});
+const getBooks = () => {
+  return (dispatch) => {
+    dispatch({
+      type: Actions.LOAD_BOOKS,
+    });
+    Axios.get(`${apiUrl}/booksDene`)
+      .then((result) => {
+        dispatch({ type: Actions.SET_BOOKS, payload: result.data });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+};
 
-const setBooks = (values) => ({
-  type: Actions.SET_BOOKS,
-  payload: values,
-});
+// const setBooks = (values) => {
+//   return (dispatch) => {
+//     dispatch({
+//       type: Actions.SET_BOOKS,
+//       payload: values,
+//     });
+//   };
+// };
 
-export { addBook, getBooks, setBooks };
+export { addBook, getBooks }; //, setBooks };

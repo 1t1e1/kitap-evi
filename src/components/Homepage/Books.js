@@ -1,9 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 const Books = (props) => {
-  useEffect(() => {
-    console.log(props.items);
-  }, []);
   return (
     <div>
       <ul>
