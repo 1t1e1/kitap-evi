@@ -2,7 +2,7 @@ import * as Actions from './types';
 import Axios from 'axios';
 import { apiUrl } from '../../../constant';
 
-const addBook = (values) => {
+const addBook = (values, history) => {
   return (dispatch) => {
     Axios.post(`${apiUrl}/booksDene`, values)
       .then(function (result) {
@@ -10,6 +10,7 @@ const addBook = (values) => {
           type: Actions.ADD_BOOK,
           payload: result.data,
         });
+        history();
       })
       .catch(function (error) {
         console.log(error);

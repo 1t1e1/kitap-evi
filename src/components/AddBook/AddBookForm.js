@@ -13,6 +13,7 @@ import { Categories, Rating } from '../../constant';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { addBook } from './../../state/ducks/books/actions';
+import { useHistory } from 'react-router';
 import './style.js';
 
 const validationSchema = Yup.object().shape({
@@ -37,6 +38,12 @@ const validationSchema = Yup.object().shape({
 
 const AddBookForm = (props) => {
   const dispatch = useDispatch();
+  const history = useHistory();
+
+  function handleHistory() {
+    history.push('/');
+  }
+
   return (
     <div>
       <Formik
@@ -51,7 +58,7 @@ const AddBookForm = (props) => {
         }}
         validationSchema={validationSchema}
         onSubmit={(values) => {
-          dispatch(addBook(values));
+          dispatch(addBook(values, handleHistory));
           console.log(JSON.stringify(values, null, 2));
         }}
       >
