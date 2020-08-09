@@ -1,11 +1,11 @@
 import React from 'react';
-import { Row, Col } from 'reactstrap';
+import { Row, Col, Container } from 'reactstrap';
 import { AddBookForm } from '../../components';
 import './style.js';
 
 const Create = () => {
   return (
-    <div>
+    <Container>
       <Row>
         <Col xs={12}>
           <h3> Yeni Kitap Ekle </h3>
@@ -16,7 +16,7 @@ const Create = () => {
           <AddBookForm></AddBookForm>
         </Col>
       </Row>
-    </div>
+    </Container>
   );
 };
 

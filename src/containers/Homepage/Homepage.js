@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Books } from '../../components';
-import { get } from '../../components';
+import { Container } from 'reactstrap';
+import { Books, FilterSortBar } from '../../components';
 import './style.js';
 import { getBooks } from '../../state/ducks/books/actions';
 
@@ -17,14 +17,13 @@ const Homepage = (props) => {
   useEffect(() => {
     dispatch(getBooks());
   }, []);
+  if (loading) return <div> books are loading </div>;
   return (
     <div>
-      This is home page
-      {loading ? (
-        <div> books are loading </div>
-      ) : (
-        <Books items={books}></Books>
-      )}
+      <FilterSortBar></FilterSortBar>
+      <Container>
+        <Books items={books}></Books>;
+      </Container>
     </div>
   );
 };

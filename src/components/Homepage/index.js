@@ -1,5 +1,5 @@
 import Books from './Books';
 import Book from './Book';
-import StyledBook from './BookStyles';
+import FilterSortBar from './FilterSortBar';
 
-export { Books, Book, StyledBook };
+export { Books, Book, FilterSortBar };

@@ -13,7 +13,7 @@ import StyledBook from './BookStyles';
 
 const Book = (props) => {
   const { rating, title, author, imageUrl } = props;
-  console.log(props);
+  // console.log(props);
   return (
     <StyledBook>
       <Card>
@@ -31,8 +31,13 @@ const Book = (props) => {
           <CardTitle> {rating}</CardTitle>
           <CardSubtitle>{title}</CardSubtitle>
           <CardText> </CardText>
-          <CardLink href="#">Detail</CardLink>
-          <CardLink href="#">Edit Book</CardLink>
+          <CardLink className="btn btn-primary float-left" href="#">
+            Detail
+          </CardLink>
+
+          <CardLink className="btn btn-primary float-right" href="#">
+            Edit Book
+          </CardLink>
         </CardBody>
       </Card>
     </StyledBook>

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const StyledBook = styled.div`
   .card {
     height: 444px;
-    margin-bottom: 15px;
+    margin-top: 15px;
     .card-img {
       height: 250px;
     }

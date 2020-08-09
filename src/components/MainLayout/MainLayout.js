@@ -7,7 +7,7 @@ const MainLayout = (props) => {
     document.title = props.title;
   }, []);
 
-  return <Container>{props.children}</Container>;
+  return <>{props.children}</>;
 };
 
 export default MainLayout;
