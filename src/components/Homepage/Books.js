@@ -1,15 +1,16 @@
 import React from 'react';
+import { Book } from './index';
+import { Row, Col } from 'reactstrap';
 
 const Books = (props) => {
   return (
-    <div>
-      <ul>
-        {' '}
-        {props.items.map((book) => (
-          <li> {book.title}</li>
-        ))}
-      </ul>
-    </div>
+    <Row>
+      {props.items.map((book) => (
+        <Col sm={3}>
+          <Book {...book}> </Book>
+        </Col>
+      ))}
+    </Row>
   );
 };
 

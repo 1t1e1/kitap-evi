@@ -51,7 +51,7 @@ const AddBookForm = (props) => {
           title: '',
           author: '',
           category: '',
-          rating: '',
+          rating: 5,
           publisher: '',
           description: '',
           imageUrl: '',
@@ -173,7 +173,9 @@ const AddBookForm = (props) => {
                 onBlur={handleBlur}
               >
                 {Rating.map((rate) => (
-                  <option key={rate}>{rate}</option>
+                  <option key={rate} value={rate}>
+                    {rate}
+                  </option>
                 ))}
               </Input>
             </FormGroup>{' '}
