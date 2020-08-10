@@ -42,13 +42,13 @@ const setFilter = (filter) => {
   };
 };
 
-// const setBooks = (values) => {
-//   return (dispatch) => {
-//     dispatch({
-//       type: Actions.SET_BOOKS,
-//       payload: values,
-//     });
-//   };
-// };
+const searchBooks = (searchTerm) => {
+  return (dispatch) => {
+    dispatch({
+      type: Actions.SEARCH_BOOKS,
+      payload: searchTerm,
+    });
+  };
+};
 
-export { addBook, getBooks, setFilter }; //, setBooks };
+export { addBook, getBooks, setFilter, searchBooks };

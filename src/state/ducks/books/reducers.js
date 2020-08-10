@@ -4,6 +4,7 @@ const initialState = {
   data: [{ title: 'first book' }, { title: 'second book' }],
   loading: false,
   filter: '',
+  searchTerm: '',
 };
 
 function booksReducer(state = initialState, action) {
@@ -28,6 +29,11 @@ function booksReducer(state = initialState, action) {
       return {
         ...state,
         filter: action.payload,
+      };
+    case Actions.SEARCH_BOOKS:
+      return {
+        ...state,
+        searchTerm: action.payload.toLowerCase().trim(),
       };
     default:
       return state;
