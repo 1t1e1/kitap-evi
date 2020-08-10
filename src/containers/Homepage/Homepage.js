@@ -30,9 +30,15 @@ const Homepage = (props) => {
   return (
     <div>
       <FilterSortBar></FilterSortBar>
-      <Container>
-        <Books items={filteredBooks}></Books>;
-      </Container>
+      {filteredBooks.length ? (
+        <Container>
+          <Books items={filteredBooks}></Books>;
+        </Container>
+      ) : (
+        <Container>
+          <h1> there is no boooks </h1>;
+        </Container>
+      )}
     </div>
   );
 };
