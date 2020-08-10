@@ -5,6 +5,9 @@ const StyledNavbarText = styled(NavbarText)`
   margin-left: 14px;
   color: ${(props) => (props.active ? '#ff8241' : '#3498db')};
   cursor: pointer;
+  strong {
+    color: black;
+  }
 `;
 
 export default StyledNavbarText;

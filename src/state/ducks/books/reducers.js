@@ -3,6 +3,7 @@ import * as Actions from './types';
 const initialState = {
   data: [{ title: 'first book' }, { title: 'second book' }],
   loading: false,
+  filter: '',
 };
 
 function booksReducer(state = initialState, action) {
@@ -22,6 +23,11 @@ function booksReducer(state = initialState, action) {
       return {
         ...state,
         loading: true,
+      };
+    case Actions.SET_FILTER:
+      return {
+        ...state,
+        filter: action.payload,
       };
     default:
       return state;

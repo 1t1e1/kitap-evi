@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Container } from 'reactstrap';
 import './style.js';
 
 const MainLayout = (props) => {

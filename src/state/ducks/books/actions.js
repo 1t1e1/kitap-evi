@@ -33,6 +33,15 @@ const getBooks = () => {
   };
 };
 
+const setFilter = (filter) => {
+  return (dispatch) => {
+    dispatch({
+      type: Actions.SET_FILTER,
+      payload: filter,
+    });
+  };
+};
+
 // const setBooks = (values) => {
 //   return (dispatch) => {
 //     dispatch({
@@ -42,4 +51,4 @@ const getBooks = () => {
 //   };
 // };
 
-export { addBook, getBooks }; //, setBooks };
+export { addBook, getBooks, setFilter }; //, setBooks };

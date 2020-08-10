@@ -7,9 +7,10 @@ import { getBooks } from '../../state/ducks/books/actions';
 
 const Homepage = (props) => {
   // const books = useSelector((state) => state.books.data);
-  const { books, loading } = useSelector((state) => ({
+  const { books, loading, activeFilter } = useSelector((state) => ({
     books: state.books.data,
     loading: state.books.loading,
+    activeFilter: state.books.filter,
   }));
 
   const dispatch = useDispatch();
@@ -18,11 +19,19 @@ const Homepage = (props) => {
     dispatch(getBooks());
   }, []);
   if (loading) return <div> books are loading </div>;
+
+  let filteredBooks;
+  if (activeFilter) {
+    filteredBooks = books.filter((book) => book.category === activeFilter);
+  } else {
+    filteredBooks = books;
+  }
+
   return (
     <div>
       <FilterSortBar></FilterSortBar>
       <Container>
-        <Books items={books}></Books>;
+        <Books items={filteredBooks}></Books>;
       </Container>
     </div>
   );

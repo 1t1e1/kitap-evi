@@ -1,6 +1,5 @@
 import React from 'react';
 import { Homepage, Detail, Create } from './containers';
-import { MainLayout } from './components';
 
 const routes = [
   {
