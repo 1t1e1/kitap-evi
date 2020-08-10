@@ -5,6 +5,7 @@ const initialState = {
   loading: false,
   filter: '',
   searchTerm: '',
+  searchByValue: 'Title',
 };
 
 function booksReducer(state = initialState, action) {
@@ -34,6 +35,11 @@ function booksReducer(state = initialState, action) {
       return {
         ...state,
         searchTerm: action.payload.toLowerCase().trim(),
+      };
+    case Actions.SEARCH_BY_VALUE:
+      return {
+        ...state,
+        searchByValue: action.payload,
       };
     default:
       return state;

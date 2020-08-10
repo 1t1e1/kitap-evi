@@ -4,6 +4,7 @@ const ADD_BOOK = 'ADD_BOOK';
 const LOAD_BOOKS = 'LOAD_BOOKS';
 const SET_FILTER = 'SET_FILTER';
 const SEARCH_BOOKS = 'SEARCH_BOOKS';
+const SEARCH_BY_VALUE = 'SEARCH_BY_VALUE';
 
 export {
   GET_BOOKS,
@@ -12,4 +13,5 @@ export {
   LOAD_BOOKS,
   SET_FILTER,
   SEARCH_BOOKS,
+  SEARCH_BY_VALUE,
 };

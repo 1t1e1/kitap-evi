@@ -7,14 +7,19 @@ import { getBooks } from '../../state/ducks/books/actions';
 
 const Homepage = (props) => {
   // const books = useSelector((state) => state.books.data);
-  const { books, loading, activeFilter, searchTerm } = useSelector(
-    (state) => ({
-      books: state.books.data,
-      loading: state.books.loading,
-      activeFilter: state.books.filter,
-      searchTerm: state.books.searchTerm,
-    }),
-  );
+  const {
+    books,
+    loading,
+    activeFilter,
+    searchTerm,
+    searchByValue,
+  } = useSelector((state) => ({
+    books: state.books.data,
+    loading: state.books.loading,
+    activeFilter: state.books.filter,
+    searchTerm: state.books.searchTerm,
+    searchByValue: state.books.searchByValue.toLowerCase(),
+  }));
 
   const dispatch = useDispatch();
 
@@ -30,16 +35,16 @@ const Homepage = (props) => {
   } else {
     filteredBooks = books;
   }
-  // book title lara gore filter
+
+  // book title, author veya publisher lara gore filter, ama category ninde icinde arama yapiyor.
   if (searchTerm) {
     filteredBooks = filteredBooks.filter((book) =>
-      book.title.toLowerCase().includes(searchTerm),
+      book[searchByValue].toLowerCase().includes(searchTerm),
     );
   } else {
     filteredBooks = filteredBooks;
   }
 
-  console.log(searchTerm, 'term');
   return (
     <div>
       <FilterSortBar></FilterSortBar>

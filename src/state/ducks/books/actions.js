@@ -51,4 +51,13 @@ const searchBooks = (searchTerm) => {
   };
 };
 
-export { addBook, getBooks, setFilter, searchBooks };
+const searchBy = (searchBy) => {
+  return (dispatch) => {
+    dispatch({
+      type: Actions.SEARCH_BY_VALUE,
+      payload: searchBy,
+    });
+  };
+};
+
+export { addBook, getBooks, setFilter, searchBooks, searchBy };
