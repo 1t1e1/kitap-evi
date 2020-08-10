@@ -3,7 +3,7 @@ import { Homepage, Detail, Create } from './containers';
 
 const routes = [
   {
-    path: '/detail/:id',
+    path: '/detail/:bookid',
     exact: true,
     component: Detail,
     // title used as a map react keys

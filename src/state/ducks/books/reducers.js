@@ -6,6 +6,7 @@ const initialState = {
   filter: '',
   searchTerm: '',
   searchByValue: 'Title',
+  detailBookData: {},
 };
 
 function booksReducer(state = initialState, action) {
@@ -40,6 +41,12 @@ function booksReducer(state = initialState, action) {
       return {
         ...state,
         searchByValue: action.payload,
+      };
+    case Actions.SET_DETAIL_BOOK:
+      return {
+        ...state,
+        detailBookData: { ...action.payload },
+        loading: false,
       };
     default:
       return state;

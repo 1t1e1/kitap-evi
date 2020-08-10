@@ -33,6 +33,21 @@ const getBooks = () => {
   };
 };
 
+const getBookById = (bookId) => {
+  return (dispatch) => {
+    dispatch({
+      type: Actions.LOAD_BOOKS,
+    });
+    Axios.get(`${apiUrl}/booksDene/${bookId}`)
+      .then((result) => {
+        dispatch({ type: Actions.SET_DETAIL_BOOK, payload: result.data });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+};
+
 const setFilter = (filter) => {
   return (dispatch) => {
     dispatch({
@@ -60,4 +75,11 @@ const searchBy = (searchBy) => {
   };
 };
 
-export { addBook, getBooks, setFilter, searchBooks, searchBy };
+export {
+  addBook,
+  getBooks,
+  getBookById,
+  setFilter,
+  searchBooks,
+  searchBy,
+};

@@ -9,10 +9,11 @@ import {
   CardSubtitle,
   Button,
 } from 'reactstrap';
+import { Link as RRLink } from 'react-router-dom';
 import StyledBook from './BookStyles';
 
 const Book = (props) => {
-  const { rating, title, author, imageUrl, description } = props;
+  const { rating, title, author, imageUrl, description, id } = props;
   let descShort = description ? description.slice(0, 100) : null;
   console.log(descShort);
   return (
@@ -35,7 +36,11 @@ const Book = (props) => {
           {/* <CardSubtitle> */}
           {/* </CardSubtitle> */}
           <CardText>{descShort} ...</CardText>
-          <CardLink className="btn btn-primary float-left" href="#">
+          <CardLink
+            tag={RRLink}
+            className="btn btn-primary float-left"
+            to={`/detail/${id}`}
+          >
             Detail
           </CardLink>
 
