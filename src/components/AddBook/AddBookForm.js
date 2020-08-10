@@ -50,7 +50,7 @@ const AddBookForm = (props) => {
         initialValues={{
           title: '',
           author: '',
-          category: '',
+          category: Categories[0],
           rating: 5,
           publisher: '',
           description: '',
